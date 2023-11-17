@@ -3,8 +3,7 @@
 static Gamestate my_game;
 
 int init_game(void) {
-	int i;
-    for (i = 0; i < BOARD_SIZE; i++) {
+	for (int i = 0; i < BOARD_SIZE; i++) {
 		my_game.board[i] = '.';
 	}
 	my_game.bscore = 0;
