@@ -4,14 +4,13 @@
 void change_board(int* board);
 
 int ai_player(int* board, int player) {
-	int my_board[BOARD_SIZE];
-    int i;
-    for (i = 0; i < BOARD_SIZE; i++) {
+    int my_board[BOARD_SIZE];
+    for (int i = 0; i < BOARD_SIZE; i++) {
         my_board[i] = board[i];
     }
     change_board(my_board);
 
-    for (i = 0; i < BOARD_SIZE; i++) {
+    for (int i = 0; i < BOARD_SIZE; i++) {
         if (my_board[i] == 0 && i >= 11 && i % 10 && i % 10 != 9) {
             return i;
         }

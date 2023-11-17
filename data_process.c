@@ -30,16 +30,14 @@ int cal_show_score(const int board[], int location) {
 	int in_use[BOARD_SIZE] = { 0 };
 
 	if (present_turn == 1) {
-        int i;
-        for (i = 0; i < BOARD_SIZE; i++) {
+		for (int i = 0; i < BOARD_SIZE; i++) {
 			if (board[i] == '#') {
 				in_use[i] = 1;
 			}
 		}
 	}
 	else {
-		int i;
-        for (i = 0; i < BOARD_SIZE; i++) {
+		for (int i = 0; i < BOARD_SIZE; i++) {
 			if (board[i] == 'O') {
 
 				in_use[i] = 1;
@@ -68,7 +66,7 @@ int dot_product(const Vector* vector1, const Vector* vector2) {
 double absolute(const Vector* vector) {
 	double result;
 	result = sqrt(((double)vector->start.x - vector->end.x) * ((double)vector->start.x - vector->end.x) \
-		+ ((double)vector->start.y - vector->end.y) * ((double)vector->start.y - vector->end.y));
+				  + ((double)vector->start.y - vector->end.y) * ((double)vector->start.y - vector->end.y));
 	return result;
 }
 
@@ -89,18 +87,18 @@ void perm(const int in_use[], int comb[], int slot, int location, int prev_i) {
 			new_score = cal_area(&m.end, &n.end);
 			if (turn() == 1) {
 				printf("Blue gain %d more points by forming square {%d, %d, %d, %d}!\n", \
-					new_score, possible, location, comb[0], comb[1]);
+					   new_score, possible, location, comb[0], comb[1]);
 			}
 			else {
 				printf("Red gain %d more points by forming square {%d, %d, %d, %d}!\n", \
-					new_score, possible, location, comb[0], comb[1]);
+					   new_score, possible, location, comb[0], comb[1]);
 			}
 		}
 		sum += new_score;
 	}
 	else {
 		int i;
-        for (i = prev_i; i < BOARD_SIZE; i++) {
+		for (i = prev_i; i < BOARD_SIZE; i++) {
 			if (in_use[i]) {
 				comb[slot] = i;
 				perm(in_use, comb, slot + 1, location, i + 1);
